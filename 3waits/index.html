@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>Race Condition Example</title>
+<div id="myDynamicElement" style = "display: none">
+    <p>hello</p>
+    <button id="btn">1234</button>
+</div>
+<script>
+    var initialised = false;
+    window.addEventListener("load", function() {
+        var newElement = document.createElement("p");
+        newElement.textContent = "Hello from JavaScript!";
+        document.body.appendChild(newElement);
+        initialised = true;
+
+
+        setTimeout('show()', 9999)
+
+
+    });
+
+    function show() {
+        document.getElementById('myDynamicElement').style.display = 'block';
+    }
+</script>
